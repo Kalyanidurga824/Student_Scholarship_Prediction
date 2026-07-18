@@ -108,13 +108,13 @@ Student_Scholarship_Prediction_System/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/Kalyanidurga824/Student_Scholarship_Prediction_System.git
+git clone https://github.com/Kalyanidurga824/Student_Scholarship_Prediction.git
 ```
 
 ### 2. Navigate to the Project Folder
 
 ```bash
-cd Student_Scholarship_Prediction_System
+cd Student_Scholarship_Prediction
 ```
 
 ### 3. Install Required Libraries
