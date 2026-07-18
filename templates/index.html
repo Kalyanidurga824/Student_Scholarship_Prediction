@@ -27,54 +27,59 @@
                     🎓 Student Scholarship Prediction System
                 </h1>
 
-                <form action="/predict" method="POST">
+                <!-- Scholarship Form -->
+                <form id="scholarshipForm" action="/predict" method="POST">
 
                     <div class="row">
 
                         <!-- CGPA -->
                         <div class="col-md-6 mb-3">
                             <label class="form-label">CGPA</label>
-                            <input type="number"
-                                   step="0.01"
-                                   min="0"
-                                   max="10"
-                                   class="form-control"
-                                   name="cgpa"
-                                   placeholder="Enter CGPA"
-                                   required>
+                            <input
+                                type="number"
+                                step="0.01"
+                                min="0"
+                                max="10"
+                                class="form-control"
+                                name="cgpa"
+                                placeholder="Enter CGPA"
+                                required>
                         </div>
 
                         <!-- Attendance -->
                         <div class="col-md-6 mb-3">
                             <label class="form-label">Attendance (%)</label>
-                            <input type="number"
-                                   min="0"
-                                   max="100"
-                                   class="form-control"
-                                   name="attendance"
-                                   placeholder="Enter Attendance"
-                                   required>
+                            <input
+                                type="number"
+                                min="0"
+                                max="100"
+                                class="form-control"
+                                name="attendance"
+                                placeholder="Enter Attendance"
+                                required>
                         </div>
 
                         <!-- Family Income -->
                         <div class="col-md-6 mb-3">
                             <label class="form-label">Family Income (₹)</label>
-                            <input type="number"
-                                   class="form-control"
-                                   name="family_income"
-                                   placeholder="Enter Annual Family Income"
-                                   required>
+                            <input
+                                type="number"
+                                class="form-control"
+                                name="family_income"
+                                placeholder="Enter Annual Family Income"
+                                required>
                         </div>
 
                         <!-- Backlogs -->
                         <div class="col-md-6 mb-3">
                             <label class="form-label">Backlogs</label>
-                            <input type="number"
-                                   min="0"
-                                   class="form-control"
-                                   name="backlogs"
-                                   placeholder="Enter Number of Backlogs"
-                                   required>
+                            <input
+                                type="number"
+                                min="0"
+                                class="form-control"
+                                name="backlogs"
+                                placeholder="Enter Number of Backlogs"
+                                required>
                         </div>
 
                         <!-- Category -->
@@ -93,13 +98,14 @@
                         <!-- Semester -->
                         <div class="col-md-6 mb-3">
                             <label class="form-label">Semester</label>
-                            <input type="number"
-                                   min="1"
-                                   max="8"
-                                   class="form-control"
-                                   name="semester"
-                                   placeholder="Enter Semester"
-                                   required>
+                            <input
+                                type="number"
+                                min="1"
+                                max="8"
+                                class="form-control"
+                                name="semester"
+                                placeholder="Enter Semester"
+                                required>
                         </div>
 
                         <!-- Sports -->
@@ -126,36 +132,63 @@
 
                     </div>
 
+                    <!-- Button -->
                     <div class="d-grid mt-3">
-                        <button type="submit" class="btn btn-primary btn-lg">
+
+                        <button
+                            type="submit"
+                            id="predictBtn"
+                            class="btn btn-primary btn-lg">
+
                             Predict Scholarship
+
                         </button>
+
+                    </div>
+
+                    <!-- Loading Spinner -->
+                    <div id="loading" class="text-center mt-4" style="display:none;">
+
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+
+                        <p class="mt-2 fw-bold">
+                            Predicting Scholarship Eligibility...
+                        </p>
+
                     </div>
 
                 </form>
 
+                <!-- Prediction Result -->
                 {% if prediction %}
 
                 <div class="result-card mt-4">
 
-                    <h3 class="text-success">Prediction Result</h3>
+                    <h3 class="text-success">
+                        Prediction Result
+                    </h3>
 
                     <h2 class="result">
                         {{ prediction }}
                     </h2>
 
                     <h5 class="confidence">
-                        Confidence Score: {{ confidence }}%
+                        Confidence Score : {{ confidence }}%
                     </h5>
 
                 </div>
 
                 {% endif %}
 
+                <!-- Error Message -->
                 {% if error %}
 
                 <div class="alert alert-danger mt-4">
+
                     {{ error }}
+
                 </div>
 
                 {% endif %}
@@ -163,7 +196,9 @@
                 <hr>
 
                 <p class="text-center text-muted">
-                    Developed using Flask, Python & Random Forest Classifier
+
+                    Developed using HTML, CSS, Bootstrap, JavaScript, Flask & Machine Learning
+
                 </p>
 
             </div>
@@ -173,6 +208,12 @@
     </div>
 
 </div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Custom JavaScript -->
+<script src="{{ url_for('static', filename='script.js') }}"></script>
 
 </body>
 
